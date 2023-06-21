@@ -13,7 +13,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Принтеры</li>
+                                <li class="breadcrumb-item active" aria-current="page">Заявка на ремонт(заправку)</li>
                             </ol>
                         </nav>
                     </div>
@@ -35,34 +35,40 @@
                 <!-- column -->
                 <div class="col-12">
                     <div class="card">
-                        <a href="{{route('printers.create')}}" class="btn btn-success">ADD</a>
+                        <a href="{{route('repair_requests.create')}}" class="btn btn-success">ADD</a>
                         <div class="table-responsive">
                             <table class="table v-middle">
                                 <thead>
                                 <tr class="bg-light">
-                                    <th class="border-top-0">Id</th>
-                                    <th class="border-top-0">Брэнд</th>
-                                    <th class="border-top-0">Модель</th>
+                                    <th class="border-top-0">Принтер</th>
+                                    <th class="border-top-0">Модель принтера</th>
+                                    <th class="border-top-0">Ф.И.О.Клиента</th>
+                                    <th class="border-top-0">Телефон</th>
+                                    <th class="border-top-0">Адрес</th>
+                                    <th class="border-top-0">Описание проблемы</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($printers as $printer)
-                                <tr>
-                                    <td>{{$printer->id}}</td>
-                                    <td>{{$printer->printerBrand->brand}}</td>
-                                    <td>{{$printer->printerModel->model}}</td>
-                                    <td>
-                                        <form action="{{route('printers.destroy', ['printer'=>$printer->id])}}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger">Удалить</button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                @foreach($repair_requests as $repair_request)
+                                    <tr>
+                                        <td>{{$repair_request->printerBrand->brand}}</td>
+                                        <td>{{$repair_request->printerModel->model}}</td>
+                                        <td>{{$repair_request->client_name}}</td>
+                                        <td>{{$repair_request->phone}}</td>
+                                        <td>{{$repair_request->address}}</td>
+                                        <td>{{$repair_request->issue_description}}</td>
+                                        <td>
+                                            <form action="{{route('repair_requests.destroy', ['repair_request'=>$repair_request->id])}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger">Удалить</button>
+                                            </form>
+                                        </td>
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            {!!$printers->links('vendor.pagination.simple-bootstrap-5')!!}
+                            {!!$repair_requests->links('vendor.pagination.simple-bootstrap-5')!!}
                         </div>
                     </div>
                 </div>

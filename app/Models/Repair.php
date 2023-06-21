@@ -8,20 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Repair extends Model
 {
     use HasFactory;
-    protected $fillable = ['printer_id', 'user_id', 'master_id', 'repair_date', 'description', 'repair_status', 'cost'];
+
+    protected $fillable = ['printer_id', 'client_id', 'master_id', 'description', 'status', 'price', 'completion_date'];
 
     public function printer()
     {
-        return $this->belongsTo(Printer::class, 'printer_id');
+        return $this->belongsTo(Printer::class);
     }
 
-    public function user()
+    public function client()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(Client::class);
     }
 
     public function master()
     {
-        return $this->belongsTo(Master::class, 'master_id');
+        return $this->belongsTo(Master::class);
     }
 }

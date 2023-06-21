@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Master;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
-class MasterController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class MasterController extends Controller
      */
     public function index()
     {
-        $masters = Master::query()->paginate();
-        return view('admin.master.index', [
-            'masters' => Master::query()->paginate()
+        $clients = Client::query()->paginate();
+        return view('admin.client.index', [
+            'clients' => Client::query()->paginate()
         ]);
     }
 
@@ -28,8 +28,8 @@ class MasterController extends Controller
      */
     public function create()
     {
-        return view('admin.master.create', [
-            'masters' => Master::all()
+        return view('admin.client.create', [
+            'clients' => Client::all()
         ]);
     }
 
@@ -41,16 +41,16 @@ class MasterController extends Controller
      */
     public function store(Request $request)
     {
-        Master::create($request->all());
+        Client::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Master  $master
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Master $master)
+    public function show(Client $client)
     {
         //
     }
@@ -58,14 +58,14 @@ class MasterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Master  $master
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit(Master $master)
+    public function edit(Client $client)
     {
-        return view('admin.master.edit', [
-            'masters' => Master::all(),
-            'master' => $master
+        return view('admin.client.edit', [
+            'clients' => Client::all(),
+            'client' => $client
         ]);
     }
 
@@ -73,22 +73,22 @@ class MasterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Master  $master
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master $master)
+    public function update(Request $request, Client $client)
     {
-        $master->fill($request->all())->save();
+        $client->fill($request->all())->save();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Master  $master
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Master $master)
+    public function destroy(Client $client)
     {
-        $master->delete();
+        $client->delete();
     }
 }

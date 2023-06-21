@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Printer extends Model
+class RepairRequest extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['brand_id', 'model_id'];
+    protected $fillable = ['brand_id', 'model_id', 'client_name', 'phone', 'address', 'issue_description'];
 
     public function printerBrand()
     {
@@ -21,8 +21,9 @@ class Printer extends Model
         return $this->belongsTo(PrinterModel::class, 'model_id');
     }
 
-    public function repairs()
+    public function repair()
     {
-        return $this->hasMany(Repair::class);
+        return $this->hasOne(Repair::class, 'client_id');
     }
+
 }

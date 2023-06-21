@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('printers', function (Blueprint $table) {
+        Schema::create('printer_models', function (Blueprint $table) {
             $table->id();
-            $table->string('brand');
+            $table->unsignedBigInteger('brand_id');
             $table->string('model');
-            $table->string('serial_number');
             $table->timestamps();
+
+            $table->foreign('brand_id')->references('id')->on('printer_brands');
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('printers');
+        Schema::dropIfExists('printer_models');
     }
 };

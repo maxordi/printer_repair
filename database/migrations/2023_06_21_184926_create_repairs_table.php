@@ -16,15 +16,17 @@ return new class extends Migration
         Schema::create('repairs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('printer_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('master_id');
-            $table->date('repair_date');
-            $table->string('description');
-            $table->decimal('cost', 8, 2);
-            $table->foreign('printer_id')->references('id')->on('printers');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('master_id')->references('id')->on('masters');
+            $table->text('description');
+            $table->string('status');
+            $table->float('price')->nullable();
+            $table->date('completion_date')->nullable();
             $table->timestamps();
+
+            $table->foreign('printer_id')->references('id')->on('printers');
+            $table->foreign('client_id')->references('id')->on('repair_requests');
+            $table->foreign('master_id')->references('id')->on('masters');
         });
     }
 

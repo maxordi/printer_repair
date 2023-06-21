@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Master;
+use App\Models\PrinterModel;
 use Illuminate\Http\Request;
 
-class MasterController extends Controller
+class PrinterModelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,7 @@ class MasterController extends Controller
      */
     public function index()
     {
-        $masters = Master::query()->paginate();
-        return view('admin.master.index', [
-            'masters' => Master::query()->paginate()
-        ]);
+        //
     }
 
     /**
@@ -28,9 +25,7 @@ class MasterController extends Controller
      */
     public function create()
     {
-        return view('admin.master.create', [
-            'masters' => Master::all()
-        ]);
+        //
     }
 
     /**
@@ -41,16 +36,16 @@ class MasterController extends Controller
      */
     public function store(Request $request)
     {
-        Master::create($request->all());
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Master  $master
+     * @param  \App\Models\PrinterModel  $printerModel
      * @return \Illuminate\Http\Response
      */
-    public function show(Master $master)
+    public function show(PrinterModel $printerModel)
     {
         //
     }
@@ -58,37 +53,34 @@ class MasterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Master  $master
+     * @param  \App\Models\PrinterModel  $printerModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Master $master)
+    public function edit(PrinterModel $printerModel)
     {
-        return view('admin.master.edit', [
-            'masters' => Master::all(),
-            'master' => $master
-        ]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Master  $master
+     * @param  \App\Models\PrinterModel  $printerModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master $master)
+    public function update(Request $request, PrinterModel $printerModel)
     {
-        $master->fill($request->all())->save();
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Master  $master
+     * @param  \App\Models\PrinterModel  $printerModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Master $master)
+    public function destroy(PrinterModel $printerModel)
     {
-        $master->delete();
+        //
     }
 }

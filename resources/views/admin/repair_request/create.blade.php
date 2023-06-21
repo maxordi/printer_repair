@@ -13,7 +13,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Добавление принтера</li>
+                                <li class="breadcrumb-item active" aria-current="page">Создание заявки</li>
                             </ol>
                         </nav>
                     </div>
@@ -42,29 +42,64 @@
                     <div class="card">
                         <div class="card-body">
                             <form class="form-horizontal form-material mx-2"
-                                  method="post" action="{{route('printers.store')}}">
+                                  method="post" action="{{route('repair_requests.store')}}">
                                 @csrf
                                 <div class="form-group">
-                                    <label class="col-md-12">Брэнд</label>
+                                    <label class="col-md-12">Брэнд принтера</label>
                                     <div class="col-md-12">
-                                        <select name="brand_id" class="form-control form-control-line">
-                                            @foreach($printer_brands as $printer_brand)
-                                                <option value="{{$printer_brand->id}}">{{$printer_brand->brand}}</option>
+                                        <select name="brand" id="brand" class="form-control">
+                                            <option value="">Выберите брэнд</option>
+                                            @foreach ($brands as $brand)
+                                                <option value="{{ $brand->id }}">{{ $brand->brand }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Модель</label>
+                                    <label class="col-md-12">Модель принтера</label>
                                     <div class="col-md-12">
-                                        <select name="model_id" class="form-control form-control-line">
-                                            @foreach($printer_models as $printer_model)
-                                                <option value="{{$printer_model->id}}">{{$printer_model->model}}</option>
+                                        <select name="model" id="model" class="form-control">
+                                            <option value="">Выберите модель</option>
+                                            @foreach ($models as $model)
+                                                <option value="{{ $model->id }}">{{ $model->model }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-
+                                <div class="form-group">
+                                    <label class="col-md-12">Фамилия Имя Отчество</label>
+                                    <div class="col-md-12">
+                                        <input type="text" name="client_name"
+                                               class="form-control form-control-line">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Контактный телефон</label>
+                                    <div class="col-md-12">
+                                        <input type="text" name="phone"
+                                               class="form-control form-control-line">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Адрес</label>
+                                    <div class="col-md-12">
+                                        <input type="text" name="address"
+                                               class="form-control form-control-line">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Примечание</label>
+                                    <div class="col-md-12">
+                                        <textarea type="text" name="issue_description"
+                                                  class="form-control form-control-line @error('note') is-invalid @enderror">
+                                        </textarea>
+                                    </div>
+                                    @error('note')
+                                    @foreach($errors->get('note') as $error)
+                                        @dump($error)
+                                    @endforeach
+                                    @enderror
+                                </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-success text-white">Сохранить</button>

@@ -86,9 +86,14 @@
                                     <label class="col-md-12">Описание</label>
                                     <div class="col-md-12">
                                         <textarea type="text" name="description"
-                                               class="form-control form-control-line">
+                                               class="form-control form-control-line @error('description') is-invalid @enderror">
                                         </textarea>
                                     </div>
+                                    @error('description')
+                                        @foreach($errors->get('description') as $error)
+                                            @dump($error)
+                                        @endforeach
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Статус ремонта</label>

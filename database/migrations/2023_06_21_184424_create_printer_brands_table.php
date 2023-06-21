@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('masters', function (Blueprint $table) {
+        Schema::create('printer_brands', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('specialization');
-            $table->integer('experience');
+            $table->string('brand');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('masters');
+        Schema::dropIfExists('printer_brands');
     }
 };

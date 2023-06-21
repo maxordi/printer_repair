@@ -5,24 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Printer extends Model
+class PrinterModel extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['brand_id', 'model_id'];
+    protected $fillable = ['brand_id', 'model'];
 
     public function printerBrand()
     {
         return $this->belongsTo(PrinterBrand::class, 'brand_id');
     }
 
-    public function printerModel()
+    public function printers()
     {
-        return $this->belongsTo(PrinterModel::class, 'model_id');
+        return $this->hasMany(Printer::class);
     }
 
-    public function repairs()
+    public function repairRequests()
     {
-        return $this->hasMany(Repair::class);
+        return $this->hasMany(RepairRequest::class);
     }
 }
