@@ -45,45 +45,42 @@
                                   method="post" action="{{route('repairs.store')}}">
                                 @csrf
                                 <div class="form-group">
-                                    <label class="col-md-12">Принтер</label>
-                                    <div class="col-md-12">
-                                        <select name="printer_id" class="form-control form-control-line">
-                                            @foreach($printers as $printer)
-                                                <option value="{{$printer->id}}">{{$printer->brand}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Клиент</label>
+                                    <label class="col-md-12">Брэнд принтера</label>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Принтер</label>
                                         <div class="col-md-12">
-                                            <select name="user_id" class="form-control form-control-line">
-                                                @foreach($users as $user)
-                                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                            <select name="printer" id="printer" class="form-control">
+                                                <option value="">Выберите принтер</option>
+                                                @foreach ($printers as $printer)
+                                                    <option value="{{ $printer->id }}">{{ $printer->printerBrand->brand }} - {{ $printer->printerModel->model }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                </div>
-
+                                    </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Мастер</label>
+                                    <label class="col-md-12">Клиент</label>
                                     <div class="col-md-12">
-                                        <select name="master_id" class="form-control form-control-line">
-                                            @foreach($masters as $master)
-                                                <option value="{{$master->id}}">{{$master->name}}</option>
+                                        <select name="client" id="client" class="form-control">
+                                            <option value="">Выбирете клиента</option>
+                                            @foreach ($clients as $client)
+                                                <option value="{{ $client->id}}">{{ $client->client_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Дата ремонта</label>
+                                    <label class="col-md-12">Мастер</label>
                                     <div class="col-md-12">
-                                        <input type="date" name="repair_date"
-                                               class="form-control form-control-line">
+                                        <select name="master" id="master" class="form-control">
+                                            <option value="">Назначте мастера</option>
+                                            @foreach ($masters as $master)
+                                                <option value="{{ $master->id}}">{{ $master->full_name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Описание</label>
+                                    <label class="col-md-12">Описание проблемы</label>
                                     <div class="col-md-12">
                                         <textarea type="text" name="description"
                                                class="form-control form-control-line @error('description') is-invalid @enderror">
@@ -98,14 +95,21 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Статус ремонта</label>
                                     <div class="col-md-12">
-                                        <input type="text" name="repair_status"
+                                        <input type="text" name="status"
                                                class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Стоимость ремонта</label>
                                     <div class="col-md-12">
-                                        <input type="text" name="cost"
+                                        <input type="text" name="price"
+                                               class="form-control form-control-line">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Дата ремонта</label>
+                                    <div class="col-md-12">
+                                        <input type="date" name="competion_date"
                                                class="form-control form-control-line">
                                     </div>
                                 </div>

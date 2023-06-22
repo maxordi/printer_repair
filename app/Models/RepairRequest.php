@@ -9,6 +9,8 @@ class RepairRequest extends Model
 {
     use HasFactory;
 
+    use HasFactory;
+
     protected $fillable = ['brand_id', 'model_id', 'client_name', 'phone', 'address', 'issue_description'];
 
     public function printerBrand()

@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
+use App\Models\Master;
+use App\Models\Printer;
+use App\Models\PrinterBrand;
+use App\Models\PrinterModel;
 use App\Models\Repair;
+use App\Models\RepairRequest;
 use Illuminate\Http\Request;
 
 class RepairController extends Controller
@@ -15,8 +21,10 @@ class RepairController extends Controller
      */
     public function index()
     {
-        $repairs = Repair::all();
-        return view('admin.repairs.index', compact('repairs'));
+        $requests = Repair::query()->paginate();
+        return view('admin.repairs.index', [
+            'repairs' => Repair::query()->paginate()
+        ]);
     }
 
     /**
@@ -26,7 +34,11 @@ class RepairController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.repairs.create', [
+            'printers' => Printer::all(),
+            'clients' => Client::all(),
+            'masters' => Master::all()
+        ]);
     }
 
     /**
@@ -37,7 +49,15 @@ class RepairController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $repair = Repair::create([
+            'printer_id' => $request->input('printer'),
+            'client_id' => $request->input('client'),
+            'master_id' => $request->input('master'),
+            'description' => $request->input('description'),
+            'status' => $request->input('status'),
+            'price' => $request->input('price'),
+            'completion_date' => $request->input('completion_date'),
+        ]);
     }
 
     /**

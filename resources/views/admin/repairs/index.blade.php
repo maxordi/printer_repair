@@ -44,25 +44,24 @@
                                     <th class="border-top-0">Принтер</th>
                                     <th class="border-top-0">Клиент</th>
                                     <th class="border-top-0">Мастер</th>
-                                    <th class="border-top-0">Дата проведения ремонта </th>
-                                    <th class="border-top-0">Описание</th>
+                                    <th class="border-top-0">Описание проблемы </th>
                                     <th class="border-top-0">Статус</th>
                                     <th class="border-top-0">Стоимость работ</th>
-
+                                    <th class="border-top-0">Дата ремонта</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($repairs as $repair)
                                 <tr>
                                     <td>{{$repair->id}}</td>
-                                    <td>{{$repair->printer->brand}}</td>
-                                    <td>{{$repair->user->name}}</td>
-                                    <td>{{$repair->master->name}}</td>
-                                    <td>{{$repair->repair_date}}</td>
+                                    <td>{{ $repair->printer->printerBrand->brand }} - {{ $repair->printer->printerModel->model }}</td>
+                                    <td>{{$repair->client->client_name}}</td>
+                                    <td>{{$repair->master->full_name}}</td>
                                     <td>{{$repair->description}}</td>
-                                    <td>{{$repair->repair_status}}</td>
-                                    <td>{{$repair->cost}}</td>
-                                    <td>
+                                    <td>{{$repair->status}}</td>
+                                    <td>{{$repair->price}}</td>
+                                    <td>{{$repair->competion_date}}</td>
+                                    <td>l
                                         <form action="{{route('repairs.destroy', ['repair'=>$repair->id])}}" method="post">
                                             @csrf
                                             @method('DELETE')

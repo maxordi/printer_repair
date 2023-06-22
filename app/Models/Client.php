@@ -15,4 +15,8 @@ class Client extends Model
     {
         return $this->hasOne(Repair::class, 'client_id');
     }
+    public function repairRequest()
+    {
+        return $this->hasOne(RepairRequest::class, 'client_id');
+    }
 }
