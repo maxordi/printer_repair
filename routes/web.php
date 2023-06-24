@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [StartController::class, 'index']);
 
-Route::prefix('admin')->group(function (){
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function (){
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('printers', PrinterController::class)
     ->except('show');

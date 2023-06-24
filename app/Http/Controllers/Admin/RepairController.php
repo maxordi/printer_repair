@@ -102,6 +102,6 @@ class RepairController extends Controller
      */
     public function destroy(Repair $repair)
     {
-        //
+        $repair->delete();
     }
 }
