@@ -30,7 +30,7 @@ class RepairRequestController extends Controller
      */
     public function create()
     {
-        return view('admin.repair_request.create', [
+        return view('site.repair_request', [
             'brands' => PrinterBrand::all(),
             'models' => PrinterModel::all()
         ]);
