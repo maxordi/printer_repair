@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRepairRequest;
 use App\Models\PrinterBrand;
 use App\Models\PrinterModel;
 use App\Models\RepairRequest;
@@ -90,7 +91,7 @@ class RepairRequestController extends Controller
      * @param  \App\Models\RepairRequest  $repairRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RepairRequest $repairRequest)
+    public function update(StoreRepairRequest $request, RepairRequest $repairRequest)
     {
         $repairRequest->update([
             'brand_id' => $request->input('brand'),

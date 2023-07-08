@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\RepairRequestController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\StartController;
+use App\Http\Controllers\SuccesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,9 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
     Route::resource('repairs', RepairController::class)
         ->except('show');
 });
+Route::get('/success', [SuccesController::class, 'index'])->name('success');
+
+
 // Отдельный маршрут для метода 'create' без middleware 'isAdmin'
     Route::middleware(['auth'])->group(function () {
         Route::get('repair_requests/create', [RepairRequestController::class, 'create'])

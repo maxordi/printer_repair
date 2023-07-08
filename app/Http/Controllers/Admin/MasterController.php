@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MasterRequest;
 use App\Models\Master;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,6 @@ class MasterController extends Controller
      */
     public function index()
     {
-        $masters = Master::query()->paginate();
         return view('admin.master.index', [
             'masters' => Master::query()->paginate()
         ]);
@@ -39,9 +39,10 @@ class MasterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MasterRequest $request)
     {
         Master::create($request->all());
+        return redirect()->route('success');
     }
 
     /**
@@ -67,6 +68,7 @@ class MasterController extends Controller
             'masters' => Master::all(),
             'master' => $master
         ]);
+
     }
 
     /**
@@ -79,6 +81,7 @@ class MasterController extends Controller
     public function update(Request $request, Master $master)
     {
         $master->fill($request->all())->save();
+        return redirect()->route('success');
     }
 
     /**
@@ -90,5 +93,6 @@ class MasterController extends Controller
     public function destroy(Master $master)
     {
         $master->delete();
+        return redirect()->route('success');
     }
 }
