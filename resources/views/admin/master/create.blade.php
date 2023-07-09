@@ -40,11 +40,11 @@
                 <div class="container clearfix">
                     <div class="navbar-collapse collapse pull-left">
                         <ul class="nav navbar-nav">
-                            <li class="drop"><a href="/" title="repair_request" >Заявки</a></li>
-                            <li><a href="/clients" title="clients">Клиенты</a></li>
+                            <li class="drop"><a href="/admin/repair_requests" title="repair_request" >Заявки</a></li>
+                            <li><a href="#" title="clients">Клиенты</a></li>
                             <li><a href="/admin/masters" title="masters" class="link-active">Мастера</a></li>
-                            <li><a href="/printers">Принтера</a></li>
-                            <li><a href="/repairs">Ремонты</a></li>
+                            <li><a href="/admin/printers">Принтера</a></li>
+                            <li><a href="/admin/repairs">Ремонты</a></li>
                         </ul> <!-- end .nav .navbar-nav  -->
                     </div>
                 </div>
@@ -75,6 +75,15 @@
 
             <div class="container">
                  <div class="container-fluid">
+                     <div class="container-fluid">
+                         <div class="row section-heading-wrapper">
+                             <div class="col-md-12 col-sm-12 text-center">
+                                 <h2 class="section-heading">Мастера</h2>
+                                 <p class="section-subheading">
+                                     Здесь вы можете добавлять нового сотрудника
+                                 </p>
+                             </div> <!-- end .col-sm-10  -->
+                         </div>
             <!-- ============================================================== -->
             <!-- Start Page Content -->
             <!-- ============================================================== -->
@@ -103,7 +112,7 @@
                                 @enderror
 
                                 <div class="form-group">
-                                    <label class="col-md-12">Контактные данные</label>
+                                    <label class="col-md-12">Контактные данные (мобильный телефон)</label>
                                     <div class="col-md-12">
                                         <input type="text" name="contact_details"
                                                class="form-control form-control-line">
@@ -133,7 +142,7 @@
                                 @enderror
 
                                 <div class="form-group">
-                                    <label class="col-md-12">Стаж работы (в годах)</label>
+                                    <label class="col-md-12">Стаж работы (лет)</label>
                                     <div class="col-md-12">
                                         <input type="text" name="experience"
                                                class="form-control form-control-line">

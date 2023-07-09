@@ -1,37 +1,68 @@
-@extends('layouts.my')
+@extends('layouts.admin')
 
 @section('content')
-    <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <div class="page-breadcrumb">
-            <div class="row align-items-center">
-                <div class="col-5">
-                    <h4 class="page-title">Profile Page</h4>
-                    <div class="d-flex align-items-center">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Ремонты</li>
-                            </ol>
-                        </nav>
+    <header class="main-header clearfix">
+
+        <section class="header-wrapper navgiation-wrapper">
+
+            <div class="navbar navbar-default">
+                <div class="container clearfix">
+                    <div class="navbar-collapse collapse pull-left">
+                        <ul class="nav navbar-nav">
+                            <li class="drop"><a href="/" title="Home Layout 01" >Главная</a></li>
+                            <li><a href="/about_us" title="About Us">О нас</a></li>
+                            <li><a href="/repair_requests/create" title="Services">Сервис</a></li>
+                            <li><a href="/contact">Контакты</a></li>
+                        </ul> <!-- end .nav .navbar-nav  -->
+                    </div>
+                    <div class="navbar-header pull-right">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="social-icons hidden-sm hidden-xs">
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="margin-right-0">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </div> <!-- end .social-icons  -->
                     </div>
                 </div>
-                <div class="col-7">
-                    <div class="text-end upgrade-btn">
-                        <a href="https://www.wrappixel.com/templates/xtremeadmin/" class="btn btn-danger text-white"
-                           target="_blank">Upgrade to Pro</a>
+                <!-- end .container  -->
+            </div> <!-- end .navbar .navbar-default  -->
+            <div class="navbar navbar-default">
+                <div class="container clearfix">
+                    <div class="navbar-collapse collapse pull-left">
+                        <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav">
+                                <li class="drop"><a href="/admin/repair_requests" title="repair_request" >Заявки</a></li>
+                                <li><a href="#" title="clients">Клиенты</a></li>
+                                <li><a href="/admin/masters" title="masters" >Мастера</a></li>
+                                <li><a href="/admin/printers" >Принтера</a></li>
+                                <li><a href="/admin/repairs" class="link-active">Ремонты</a></li>
+                            </ul>
+                        </ul> <!-- end .nav .navbar-nav  -->
                     </div>
                 </div>
+                <!-- end .container  -->
             </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
+
+        </section>
+
+
+    </header>
+    <div class="page-wrapper">
+
+        <section class="section-content-block section-price-plan section-secondary-bg">
+
+            <div class="container">
+                <!-- ============================================================== -->
         <div class="container-fluid">
             <!-- ============================================================== -->
             <!-- Start Page Content -->
@@ -57,7 +88,15 @@
                                             </select>
                                         </div>
                                     </div>
-                                <div class="form-group">
+                                    @error('printer')
+                                    @foreach($errors->get('printer') as $error)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$error}}
+                                        </div>
+                                    @endforeach
+                                    @enderror
+
+                                     <div class="form-group">
                                     <label class="col-md-12">Клиент</label>
                                     <div class="col-md-12">
                                         <select name="client" id="client" class="form-control">
@@ -68,7 +107,15 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                    @error('client')
+                                    @foreach($errors->get('client') as $error)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$error}}
+                                        </div>
+                                    @endforeach
+                                    @enderror
+
+                                    <div class="form-group">
                                     <label class="col-md-12">Мастер</label>
                                     <div class="col-md-12">
                                         <select name="master" id="master" class="form-control">
@@ -79,43 +126,77 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Описание проблемы</label>
+                                    @error('master')
+                                    @foreach($errors->get('master') as $error)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$error}}
+                                        </div>
+                                    @endforeach
+                                    @enderror
+                                    <div class="form-group">
+                                <label class="col-md-12">Описание проблемы</label>
                                     <div class="col-md-12">
                                         <textarea type="text" name="description"
-                                               class="form-control form-control-line @error('description') is-invalid @enderror">
+                                                  class="form-control form-control-line @error('description') is-invalid @enderror">
                                         </textarea>
                                     </div>
-                                    @error('description')
-                                        @foreach($errors->get('description') as $error)
-                                            @dump($error)
-                                        @endforeach
-                                    @enderror
                                 </div>
-                                <div class="form-group">
+                                    @error('description')
+                                    @foreach($errors->get('description') as $error)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$error}}
+                                        </div>
+                                    @endforeach
+                                    @enderror
+                                    <div class="form-group">
                                     <label class="col-md-12">Статус ремонта</label>
                                     <div class="col-md-12">
                                         <input type="text" name="status"
                                                class="form-control form-control-line">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Стоимость ремонта</label>
-                                    <div class="col-md-12">
-                                        <input type="text" name="price"
+                                    @error('status')
+                                    @foreach($errors->get('status') as $error)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$error}}
+                                        </div>
+                                    @endforeach
+                                    @enderror
+
+                                    <div class="form-group">
+                                        <label class="col-md-12">Стоимость ремонта</label>
+                                        <div class="col-md-12">
+                                            <input type="text" name="price"
                                                class="form-control form-control-line">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Дата ремонта</label>
-                                    <div class="col-md-12">
-                                        <input type="date" name="competion_date"
+                                    @error('price')
+                                    @foreach($errors->get('price') as $error)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$error}}
+                                        </div>
+                                    @endforeach
+                                    @enderror
+
+                                     <div class="form-group">
+                                        <label class="col-md-12">Дата ремонта</label>
+                                        <div class="col-md-12">
+                                            <input type="date" name="competion_date"
                                                class="form-control form-control-line">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <button class="btn btn-success text-white">Save</button>
+                                    @error('competion_date')
+                                    @foreach($errors->get('competion_date') as $error)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$error}}
+                                        </div>
+                                    @endforeach
+                                    @enderror
+
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                         <button class="btn btn-success text-white">Save</button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -136,19 +217,12 @@
             <!-- End Right sidebar -->
             <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <footer class="footer text-center">
-            All Rights Reserved by Xtreme Admin. Designed and Developed by <a
-                href="https://www.wrappixel.com">WrapPixel</a>.
-        </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
+    </div> <!-- end .container  -->
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
     </div>
 @endsection
 

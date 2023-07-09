@@ -78,7 +78,7 @@ class MasterController extends Controller
      * @param  \App\Models\Master  $master
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master $master)
+    public function update(MasterRequest $request, Master $master)
     {
         $master->fill($request->all())->save();
         return redirect()->route('success');

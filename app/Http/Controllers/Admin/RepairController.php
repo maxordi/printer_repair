@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RestoreRequest;
 use App\Models\Client;
 use App\Models\Master;
 use App\Models\Printer;
@@ -47,7 +48,7 @@ class RepairController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RestoreRequest $request)
     {
         $repair = Repair::create([
             'printer_id' => $request->input('printer'),
@@ -58,6 +59,7 @@ class RepairController extends Controller
             'price' => $request->input('price'),
             'completion_date' => $request->input('completion_date'),
         ]);
+        return redirect()->route('success');
     }
 
     /**
@@ -91,7 +93,7 @@ class RepairController extends Controller
      */
     public function update(Request $request, Repair $repair)
     {
-        //
+        return redirect()->route('success');
     }
 
     /**
@@ -103,5 +105,6 @@ class RepairController extends Controller
     public function destroy(Repair $repair)
     {
         $repair->delete();
+        return redirect()->route('success');
     }
 }

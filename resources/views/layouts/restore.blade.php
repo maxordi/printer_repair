@@ -308,7 +308,7 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="/">Home</a>
+                                    <a href="/admin/repair_requests">Admin</a>
                                 </li>
                                 <li>
                                     <a href="/about_us">About</a>

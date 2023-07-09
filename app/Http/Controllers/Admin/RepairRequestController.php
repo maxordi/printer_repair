@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreRepairRequest;
+use App\Http\Requests\RepairsRequest;
 use App\Models\PrinterBrand;
 use App\Models\PrinterModel;
 use App\Models\RepairRequest;
@@ -43,7 +43,7 @@ class RepairRequestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RepairsRequest $request)
     {
         $repairRequest = RepairRequest::create([
             'brand_id' => $request->input('brand'),
@@ -53,7 +53,7 @@ class RepairRequestController extends Controller
             'address' => $request->input('address'),
             'issue_description' => $request->input('issue_description'),
         ]);
-
+        return redirect()->route('success');
     }
 
 
@@ -91,7 +91,7 @@ class RepairRequestController extends Controller
      * @param  \App\Models\RepairRequest  $repairRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreRepairRequest $request, RepairRequest $repairRequest)
+    public function update(RepairRequest $request, RepairRequest $repairRequest)
     {
         $repairRequest->update([
             'brand_id' => $request->input('brand'),
@@ -101,6 +101,7 @@ class RepairRequestController extends Controller
             'address' => $request->input('address'),
             'issue_description' => $request->input('issue_description'),
         ]);
+        return redirect()->route('success');
     }
 
     /**
@@ -112,5 +113,6 @@ class RepairRequestController extends Controller
     public function destroy(RepairRequest $repairRequest)
     {
         $repairRequest->delete();
+        return redirect()->route('success');
     }
 }

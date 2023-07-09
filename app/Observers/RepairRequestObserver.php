@@ -8,7 +8,7 @@ use App\Models\Client;
 class RepairRequestObserver
 {
     /**
-     * Handle the RepairRequest "created" event.
+     * Handle the RepairsRequest "created" event.
      *
      * @param  \App\Models\RepairRequest  $repairRequest
      * @return void
@@ -23,7 +23,7 @@ class RepairRequestObserver
     }
 
     /**
-     * Handle the RepairRequest "updated" event.
+     * Handle the RepairsRequest "updated" event.
      *
      * @param  \App\Models\RepairRequest  $repairRequest
      * @return void
@@ -34,7 +34,7 @@ class RepairRequestObserver
     }
 
     /**
-     * Handle the RepairRequest "deleted" event.
+     * Handle the RepairsRequest "deleted" event.
      *
      * @param  \App\Models\RepairRequest  $repairRequest
      * @return void
@@ -45,7 +45,7 @@ class RepairRequestObserver
     }
 
     /**
-     * Handle the RepairRequest "restored" event.
+     * Handle the RepairsRequest "restored" event.
      *
      * @param  \App\Models\RepairRequest  $repairRequest
      * @return void
@@ -56,7 +56,7 @@ class RepairRequestObserver
     }
 
     /**
-     * Handle the RepairRequest "force deleted" event.
+     * Handle the RepairsRequest "force deleted" event.
      *
      * @param  \App\Models\RepairRequest  $repairRequest
      * @return void

@@ -40,11 +40,13 @@
                 <div class="container clearfix">
                     <div class="navbar-collapse collapse pull-left">
                         <ul class="nav navbar-nav">
-                            <li class="drop"><a href="/" title="repair_request" >Заявки</a></li>
-                            <li><a href="/clients" title="clients">Клиенты</a></li>
-                            <li><a href="/admin/masters" title="masters" class="link-active">Мастера</a></li>
-                            <li><a href="/printers">Принтера</a></li>
-                            <li><a href="/repairs">Ремонты</a></li>
+                            <ul class="nav navbar-nav">
+                                <li class="drop"><a href="/admin/repair_requests" title="repair_request" >Заявки</a></li>
+                                <li><a href="#" title="clients">Клиенты</a></li>
+                                <li><a href="/admin/masters" title="masters" class="link-active">Мастера</a></li>
+                                <li><a href="/admin/printers">Принтера</a></li>
+                                <li><a href="/admin/repairs">Ремонты</a></li>
+                            </ul>
                         </ul> <!-- end .nav .navbar-nav  -->
                     </div>
                 </div>
@@ -75,7 +77,15 @@
 
             <div class="container">
         <!-- ============================================================== -->
-        <div class="container-fluid">
+                <div class="container-fluid">
+                    <div class="row section-heading-wrapper">
+                        <div class="col-md-12 col-sm-12 text-center">
+                            <h2 class="section-heading">Мастера</h2>
+                            <p class="section-subheading">
+                                Здесь вы можете изменять данные о сотруднике
+                            </p>
+                        </div> <!-- end .col-sm-10  -->
+                    </div>
             <!-- ============================================================== -->
             <!-- Start Page Content -->
             <!-- ============================================================== -->
@@ -95,13 +105,29 @@
                                                class="form-control form-control-line" value="{{$master->full_name}}">
                                     </div>
                                 </div>
+                                @error('full_name')
+                                @foreach($errors->get('full_name') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
+
                                 <div class="form-group">
-                                    <label class="col-md-12">Контактные данные</label>
+                                    <label class="col-md-12">Контактные данные (мобильный телефон)</label>
                                     <div class="col-md-12">
                                         <input type="text" name="contact_details"
                                                class="form-control form-control-line" value="{{$master->contact_details}}">
                                     </div>
                                 </div>
+                                @error('contact_details')
+                                @foreach($errors->get('contact_details') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
+
                                 <div class="form-group">
                                     <label class="col-md-12">Специальность</label>
                                     <div class="col-md-12">
@@ -109,13 +135,29 @@
                                                class="form-control form-control-line" value="{{$master->specialty}}">
                                     </div>
                                 </div>
+                                @error('specialty')
+                                @foreach($errors->get('specialty') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
+
                                 <div class="form-group">
-                                    <label class="col-md-12">Стаж работы</label>
+                                    <label class="col-md-12">Стаж работы (лет)</label>
                                     <div class="col-md-12">
                                         <input type="text" name="experience"
                                                class="form-control form-control-line" value="{{$master->experience}}">
                                     </div>
                                 </div>
+                                @error('experience')
+                                @foreach($errors->get('experience') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
+
                                 <div class="form-group">
                                     <label class="col-md-12">Примечание</label>
                                     <div class="col-md-12">
@@ -125,7 +167,9 @@
                                     </div>
                                     @error('note')
                                     @foreach($errors->get('note') as $error)
-                                        @dump($error)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$error}}
+                                        </div>
                                     @endforeach
                                     @enderror
                                 </div>
@@ -158,7 +202,6 @@
         <!-- End Container fluid  -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
-
     </div>
 @endsection
 

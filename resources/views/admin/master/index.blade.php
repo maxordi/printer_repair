@@ -40,11 +40,11 @@
                 <div class="container clearfix">
                     <div class="navbar-collapse collapse pull-left">
                         <ul class="nav navbar-nav">
-                            <li class="drop"><a href="/" title="repair_request" >Заявки</a></li>
-                            <li><a href="/about_us" title="clients">Клиенты</a></li>
+                            <li class="drop"><a href="/admin/repair_requests" title="repair_request" >Заявки</a></li>
+                            <li><a href="#" title="clients">Клиенты</a></li>
                             <li><a href="/admin/masters" title="masters" class="link-active">Мастера</a></li>
-                            <li><a href="/printers">Принтера</a></li>
-                            <li><a href="/repairs">Ремонты</a></li>
+                            <li><a href="/admin/printers">Принтера</a></li>
+                            <li><a href="/admin/repairs">Ремонты</a></li>
                         </ul> <!-- end .nav .navbar-nav  -->
                     </div>
                 </div>
@@ -92,18 +92,16 @@
                                     <table class="table v-middle">
                                         <thead>
                                         <tr class="bg-light">
-                                            <th class="border-top-0">Id</th>
-                                            <th class="border-top-0">Ф.И.О.</th>
+                                            <th class="border-top-0">Фамилия Имя Отчество</th>
                                             <th class="border-top-0">Контактные данные</th>
                                             <th class="border-top-0">Специальность</th>
-                                            <th class="border-top-0">Стаж работы</th>
+                                            <th class="border-top-0">Стаж работы (лет)</th>
                                             <th class="border-top-0">Примечание</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($masters as $master)
                                             <tr>
-                                                <td>{{$master->id}}</td>
                                                 <td>{{$master->full_name}}</td>
                                                 <td>{{$master->contact_details}}</td>
                                                 <td>{{$master->specialty}}</td>

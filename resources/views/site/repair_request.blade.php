@@ -131,6 +131,14 @@
                                         </select>
                                     </div>
                                 </div>
+                                @error('brand')
+                                @foreach($errors->get('brand') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
+
                                 <div class="form-group">
                                     <label class="col-md-12">Модель принтера</label>
                                     <div class="col-md-12">
@@ -142,6 +150,14 @@
                                         </select>
                                     </div>
                                 </div>
+                                @error('model')
+                                @foreach($errors->get('model') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
+
                                 <div class="form-group">
                                     <label class="col-md-12">Фамилия Имя Отчество</label>
                                     <div class="col-md-12">
@@ -149,6 +165,14 @@
                                                class="form-control form-control-line">
                                     </div>
                                 </div>
+                                @error('client_name')
+                                @foreach($errors->get('client_name') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
+
                                 <div class="form-group">
                                     <label class="col-md-12">Контактный телефон</label>
                                     <div class="col-md-12">
@@ -156,6 +180,14 @@
                                                class="form-control form-control-line">
                                     </div>
                                 </div>
+                                @error('phone')
+                                @foreach($errors->get('phone') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
+
                                 <div class="form-group">
                                     <label class="col-md-12">Адрес</label>
                                     <div class="col-md-12">
@@ -163,6 +195,14 @@
                                                class="form-control form-control-line">
                                     </div>
                                 </div>
+                                @error('address')
+                                @foreach($errors->get('address') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
+
                                 <div class="form-group">
                                     <label class="col-md-12">Примечание</label>
                                     <div class="col-md-12">
