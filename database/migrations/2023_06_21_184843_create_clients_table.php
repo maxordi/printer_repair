@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('client_name');
             $table->string('phone');
             $table->string('address');
-            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

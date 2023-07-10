@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Printer;
+use App\Models\User;
+use App\Models\Master;
 use App\Models\PrinterBrand;
 use App\Models\PrinterModel;
 use Illuminate\Http\Request;
@@ -33,7 +35,6 @@ class PrinterController extends Controller
     public function create()
     {
         return view('admin.printers.create', [
-            'printers' => Printer::all(),
             'printer_brands' => PrinterBrand::all(),
             'printer_models' => PrinterModel::all(),
         ]);
@@ -48,6 +49,7 @@ class PrinterController extends Controller
     public function store(Request $request)
     {
         Printer::create($request->all());
+        return redirect()->route('success');
     }
 
     /**
@@ -87,6 +89,7 @@ class PrinterController extends Controller
     public function update(Request $request, Printer $printer)
     {
         $printer->fill($request->all())->save();
+        return redirect()->route('success');
     }
 
     /**
@@ -98,5 +101,6 @@ class PrinterController extends Controller
     public function destroy(Printer $printer)
     {
         $printer->delete();
+        return redirect()->route('success');
     }
 }

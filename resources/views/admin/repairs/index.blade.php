@@ -94,11 +94,11 @@
                                 <tbody>
                                 @foreach($repairs as $repair)
                                 <tr>
-                                    <td>{{ $repair->printer->printerBrand->brand }} - {{ $repair->printer->printerModel->model }}</td>
+                                    <td>{{ $repair->printer->printerBrand->brand }} - {{ $repair->printer->printerModel->name }}</td>
                                     <td>{{$repair->client->client_name}}</td>
                                     <td>{{$repair->master->full_name}}</td>
                                     <td>{{$repair->description}}</td>
-                                    <td>{{$repair->status}}</td>
+                                    <td>{{$repair->repairStatus->name}}</td>
                                     <td>{{$repair->price}}</td>
                                     <td>{{$repair->competion_date}}</td>
                                     <td>

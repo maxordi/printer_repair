@@ -96,7 +96,6 @@
                                             <th class="border-top-0">Контактные данные</th>
                                             <th class="border-top-0">Специальность</th>
                                             <th class="border-top-0">Стаж работы (лет)</th>
-                                            <th class="border-top-0">Примечание</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -106,7 +105,6 @@
                                                 <td>{{$master->contact_details}}</td>
                                                 <td>{{$master->specialty}}</td>
                                                 <td>{{$master->experience}}</td>
-                                                <td>{{$master->note}}</td>
                                                 <td><a href="{{ route('masters.edit', ['master'=> $master->id]) }}" class="btn btn-warning text-white">Редактировать</a></td>
                                                 <td>
                                                     <form action="{{route('masters.destroy', ['master'=>$master->id])}}" method="post">

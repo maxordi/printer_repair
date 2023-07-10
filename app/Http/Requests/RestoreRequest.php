@@ -27,7 +27,7 @@ class RestoreRequest extends FormRequest
         'printer' => 'required',
         'client' => 'required',
         'master' => 'required',
-        'status' => 'required',
+        'repairStatus' => 'required',
         'price' => 'required|integer',
         'competion_date' => 'required',
         'description' => 'max:250|regex:/^[a-zA-Zа-яА-ЯЁё\s\-]+$/u'
@@ -40,7 +40,7 @@ class RestoreRequest extends FormRequest
             'printer.required' => 'Поле Принтер является обязательным для заполнения',
             'client.required' => 'Поле Клиент является обязательным для заполнения',
             'master.required' => 'Поле Мастер является обязательным для заполнения',
-            'status.required' => 'Поле Статус ремонта является обязательным для заполнения',
+            'repairStatus.required' => 'Поле Статус ремонта является обязательным для заполнения',
             'price.required' => 'Поле Стоимость ремонта является обязательным для заполнения',
             'competion_date.required' => 'Поле Дата ремонта является обязательным для заполнения',
             'description.max' => 'Поле Описание проблемы не должно превышать 250 символов',

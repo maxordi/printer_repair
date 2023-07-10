@@ -157,21 +157,6 @@
                                 @enderror
 
                                 <div class="form-group">
-                                    <label class="col-md-12">Примечание</label>
-                                    <div class="col-md-12">
-                                        <textarea type="text" name="note"
-                                                  class="form-control form-control-line @error('note') is-invalid @enderror">
-                                        </textarea>
-                                    </div>
-                                    @error('note')
-                                    @foreach($errors->get('note') as $error)
-                                        <div class="alert alert-danger" role="alert">
-                                            {{$error}}
-                                        </div>
-                                    @endforeach
-                                    @enderror
-                                </div>
-                                <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-warning text-white">Сохранить</button>
                                     </div>

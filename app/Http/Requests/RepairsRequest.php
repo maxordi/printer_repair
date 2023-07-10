@@ -24,8 +24,8 @@ class RepairsRequest extends FormRequest
     public function rules()
     {
         return[
-        'brand' => 'required',
-        'model' => 'required|unique:masters,contact_details',
+        'printer_brand_id' => 'required',
+        'printer_model_id' => 'required|unique:masters,contact_details',
         'client_name' => 'required|max:100|regex:/^[a-zA-Zа-яА-ЯЁё\s\-]+$/u|regex:/^([A-ZА-ЯЁ][a-zа-яё]*\s?)+$/u',
         'phone' => 'required',
         'address' => 'required',
@@ -36,8 +36,8 @@ class RepairsRequest extends FormRequest
     public function messages()
     {
         return [
-            'brand.required' => 'Поле Брэнд принтера является обязательным для заполнения',
-            'model.required' => 'Поле Модель принтера является обязательным для заполнения',
+            'printer_brand_id.required' => 'Поле Брэнд принтера является обязательным для заполнения',
+            'printer_model_id.required' => 'Поле Модель принтера является обязательным для заполнения',
             'client_name.required' => 'Поле Фамилия Имя Отчество является обязательным для заполнения',
             'client_name.max' => 'Поле Фамилия Имя Отчество  не должно быть больше 100 симовлов',
             'client_name.regex' => 'Поле Фамилия Имя Отчество можно вводить только буквы, пробелы и дефисы и первая буква каждого слова была заглавной ',

@@ -107,9 +107,9 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Брэнд</label>
                                     <div class="col-md-12">
-                                        <select name="brand_id" class="form-control form-control-line">
+                                        <select name="printer_brand_id" class="form-control form-control-line">
                                             @foreach($printer_brands as $printer_brand)
-                                                <option value="{{$printer_brand->id}}">{{$printer_brand->brand}}</option>
+                                                <option value="{{ $printer_brand->id }}">{{ $printer_brand->brand }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -117,9 +117,9 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Модель</label>
                                     <div class="col-md-12">
-                                        <select name="model_id" class="form-control form-control-line">
+                                        <select name="printer_model_id" class="form-control form-control-line">
                                             @foreach($printer_models as $printer_model)
-                                                <option value="{{$printer_model->id}}">{{$printer_model->model}}</option>
+                                                <option value="{{ $printer_model->id }}">{{ $printer_model->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

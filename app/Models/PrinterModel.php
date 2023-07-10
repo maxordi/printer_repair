@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class PrinterModel extends Model
 {
     use HasFactory;
-    protected $fillable = ['brand_id', 'model'];
+    protected $fillable = ['printer_brand_id', 'name'];
 
     public function printerBrand()
     {
-        return $this->belongsTo(PrinterBrand::class, 'brand_id');
+        return $this->belongsTo(PrinterBrand::class, 'printer_brand_id');
     }
 
     public function printers()

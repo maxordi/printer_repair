@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('printer_models', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('brand_id');
-            $table->string('model');
+            $table->unsignedBigInteger('printer_brand_id')->nullable();
+            $table->string('name');
             $table->timestamps();
 
-            $table->foreign('brand_id')->references('id')->on('printer_brands');
+            $table->foreign('printer_brand_id')->references('id')->on('printer_brands');
         });
     }
 

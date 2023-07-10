@@ -46,8 +46,8 @@ class RepairRequestController extends Controller
     public function store(RepairsRequest $request)
     {
         $repairRequest = RepairRequest::create([
-            'brand_id' => $request->input('brand'),
-            'model_id' => $request->input('model'),
+            'printer_brand_id' => $request->input('printer_brand_id'),
+            'printer_model_id' => $request->input('printer_model_id'),
             'client_name' => $request->input('client_name'),
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
@@ -77,7 +77,6 @@ class RepairRequestController extends Controller
     public function edit(RepairRequest $repairRequest)
     {
         return view('admin.repair_request.edit', [
-            'repair_requests' => RepairRequest::all(),
             'repair_request' => $repairRequest,
             'brands' => PrinterBrand::all(),
             'models' => PrinterModel::all()
@@ -91,11 +90,11 @@ class RepairRequestController extends Controller
      * @param  \App\Models\RepairRequest  $repairRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(RepairRequest $request, RepairRequest $repairRequest)
+    public function update(Request $request, RepairRequest $repairRequest)
     {
         $repairRequest->update([
-            'brand_id' => $request->input('brand'),
-            'model_id' => $request->input('model'),
+            'printer_brand_id' => $request->input('printer_brand_id'),
+            'printer_model_id' => $request->input('printer_model_id'),
             'client_name' => $request->input('client_name'),
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),

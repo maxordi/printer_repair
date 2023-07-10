@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('contact_details');
             $table->string('specialty');
             $table->string('experience');
-            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

@@ -97,31 +97,49 @@
                         <div class="card-body">
                             <form class="form-horizontal form-material mx-2"
                                   method="post" action="{{route('repair_requests.update', ['repair_request' => $repair_request])}}">
-                                @method('PUT')
                                 @csrf
+                                @method('PUT')
+
                                 <div class="form-group">
                                     <label class="col-md-12">Брэнд принтера</label>
                                     <div class="col-md-12">
-                                        <select name="brand" id="brand" class="form-control">
+                                        <select name="printer_brand_id" id="brand" class="form-control">
                                             <option value="">Выберите брэнд</option>
                                             @foreach ($brands as $brand)
-                                                <option value="{{ $brand->id }}" @if($brand->id == $repair_request->brand_id) selected @endif>{{ $brand->brand }}</option>
+                                                <option value="{{ $brand->id }}" {{ $brand->id == $repair_request->printer_brand_id ? 'selected' : '' }}>
+                                                    {{ $brand->brand }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-12">Модель принтера</label>
-                                    <div class="col-md-12">
-                                        <select name="model" id="model" class="form-control">
-                                            <option value="">Выберите модель</option>
-                                            @foreach ($models as $model)
-                                                <option value="{{ $model->id }}" @if($model->id == $repair_request->model_id) selected @endif>{{ $model->model }}</option>
+                                @error('printer_brand_id')
+                                @foreach($errors->get('printer_brand_id') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
 
+                                <div class="form-group">
+                                    <label class="col-md-12">Модель</label>
+                                    <div class="col-md-12">
+                                        <select name="printer_model_id" class="form-control form-control-line">
+                                            @foreach($models as $model)
+                                                <option value="{{ $model->id }}" {{ $model->id == $repair_request->printer_model_id ? 'selected' : '' }}>
+                                                    {{ $model->name }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
+                                @error('printer_model_id')
+                                @foreach($errors->get('printer_model_id') as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}
+                                    </div>
+                                @endforeach
+                                @enderror
                                 <div class="form-group">
                                     <label class="col-md-12">Фамилия Имя Отчество</label>
                                     <div class="col-md-12">

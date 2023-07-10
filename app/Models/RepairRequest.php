@@ -11,16 +11,16 @@ class RepairRequest extends Model
 
     use HasFactory;
 
-    protected $fillable = ['brand_id', 'model_id', 'client_name', 'phone', 'address', 'issue_description'];
+    protected $fillable = ['printer_brand_id', 'printer_model_id', 'client_name', 'phone', 'address', 'issue_description'];
 
     public function printerBrand()
     {
-        return $this->belongsTo(PrinterBrand::class, 'brand_id');
+        return $this->belongsTo(PrinterBrand::class, 'printer_brand_id');
     }
 
     public function printerModel()
     {
-        return $this->belongsTo(PrinterModel::class, 'model_id');
+        return $this->belongsTo(PrinterModel::class, 'printer_model_id');
     }
 
     public function repair()

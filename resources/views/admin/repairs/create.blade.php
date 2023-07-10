@@ -83,7 +83,7 @@
                                             <select name="printer" id="printer" class="form-control">
                                                 <option value="">Выберите принтер</option>
                                                 @foreach ($printers as $printer)
-                                                    <option value="{{ $printer->id }}">{{ $printer->printerBrand->brand }} - {{ $printer->printerModel->model }}</option>
+                                                    <option value="{{ $printer->id }}">{{ $printer->printerBrand->brand }} - {{ $printer->printerModel->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -148,15 +148,20 @@
                                         </div>
                                     @endforeach
                                     @enderror
+
                                     <div class="form-group">
                                     <label class="col-md-12">Статус ремонта</label>
                                     <div class="col-md-12">
-                                        <input type="text" name="status"
-                                               class="form-control form-control-line">
+                                        <select name="repairStatus" id="repairStatus" class="form-control">
+                                            <option value="">Выберете статус</option>
+                                            @foreach ($repairStatuses as $repairStatus)
+                                                <option value="{{ $repairStatus->id}}">{{ $repairStatus->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                    @error('status')
-                                    @foreach($errors->get('status') as $error)
+                                    @error('repairStatus')
+                                    @foreach($errors->get('repairStatus') as $error)
                                         <div class="alert alert-danger" role="alert">
                                             {{$error}}
                                         </div>

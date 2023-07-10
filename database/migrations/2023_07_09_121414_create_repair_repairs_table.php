@@ -19,14 +19,15 @@ return new class extends Migration
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('master_id');
             $table->text('description');
-            $table->string('status');
+            $table->unsignedBigInteger('repair_status_id')->nullable();
             $table->float('price')->nullable();
             $table->date('completion_date')->nullable();
             $table->timestamps();
 
             $table->foreign('printer_id')->references('id')->on('printers');
-            $table->foreign('client_id')->references('id')->on('repair_requests');
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('master_id')->references('id')->on('masters');
+            $table->foreign('repair_status_id')->references('id')->on('repair_statuses');
         });
     }
 

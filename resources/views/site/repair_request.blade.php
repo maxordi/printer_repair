@@ -123,7 +123,7 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Брэнд принтера</label>
                                     <div class="col-md-12">
-                                        <select name="brand" id="brand" class="form-control">
+                                        <select name="printer_brand_id" id="brand" class="form-control">
                                             <option value="">Выберите брэнд</option>
                                             @foreach ($brands as $brand)
                                                 <option value="{{ $brand->id }}">{{ $brand->brand }}</option>
@@ -131,8 +131,8 @@
                                         </select>
                                     </div>
                                 </div>
-                                @error('brand')
-                                @foreach($errors->get('brand') as $error)
+                                @error('printer_brand_id')
+                                @foreach($errors->get('printer_brand_id') as $error)
                                     <div class="alert alert-danger" role="alert">
                                         {{$error}}
                                     </div>
@@ -140,18 +140,17 @@
                                 @enderror
 
                                 <div class="form-group">
-                                    <label class="col-md-12">Модель принтера</label>
+                                    <label class="col-md-12">Модель</label>
                                     <div class="col-md-12">
-                                        <select name="model" id="model" class="form-control">
-                                            <option value="">Выберите модель</option>
-                                            @foreach ($models as $model)
-                                                <option value="{{ $model->id }}">{{ $model->model }}</option>
+                                        <select name="printer_model_id" class="form-control form-control-line">
+                                            @foreach($models as $model)
+                                                <option value="{{ $model->id }}">{{ $model->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-                                @error('model')
-                                @foreach($errors->get('model') as $error)
+                                @error('printer_model_id')
+                                @foreach($errors->get('printer_model_id') as $error)
                                     <div class="alert alert-danger" role="alert">
                                         {{$error}}
                                     </div>

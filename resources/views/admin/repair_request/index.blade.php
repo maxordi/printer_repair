@@ -109,7 +109,7 @@
                                 @foreach($repair_requests as $repair_request)
                                     <tr>
                                         <td>{{$repair_request->printerBrand->brand}}</td>
-                                        <td>{{$repair_request->printerModel->model}}</td>
+                                        <td>{{$repair_request->printerModel->name}}</td>
                                         <td>{{$repair_request->client_name}}</td>
                                         <td>{{$repair_request->phone}}</td>
                                         <td>{{$repair_request->address}}</td>

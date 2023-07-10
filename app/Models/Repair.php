@@ -9,7 +9,7 @@ class Repair extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['printer_id', 'client_id', 'master_id', 'description', 'status', 'price', 'completion_date'];
+    protected $fillable = ['printer_id', 'client_id', 'master_id', 'description', 'repair_status_id', 'price', 'completion_date'];
 
     public function printer()
     {
@@ -24,5 +24,10 @@ class Repair extends Model
     public function master()
     {
         return $this->belongsTo(Master::class);
+    }
+
+    public function repairStatus()
+    {
+        return $this->belongsTo(RepairStatus::class, 'repair_status_id');
     }
 }

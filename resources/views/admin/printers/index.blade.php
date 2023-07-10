@@ -90,7 +90,7 @@
                                 @foreach($printers as $printer)
                                 <tr>
                                     <td>{{$printer->printerBrand->brand}}</td>
-                                    <td>{{$printer->printerModel->model}}</td>
+                                    <td>{{$printer->printerModel->name}}</td>
                                     <td>
                                         <form action="{{route('printers.destroy', ['printer'=>$printer->id])}}" method="post">
                                             @csrf

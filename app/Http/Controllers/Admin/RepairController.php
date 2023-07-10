@@ -11,6 +11,7 @@ use App\Models\PrinterBrand;
 use App\Models\PrinterModel;
 use App\Models\Repair;
 use App\Models\RepairRequest;
+use App\Models\RepairStatus;
 use Illuminate\Http\Request;
 
 class RepairController extends Controller
@@ -31,14 +32,15 @@ class RepairController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
         return view('admin.repairs.create', [
-            'printers' => Printer::all(),
+            'printers' => Printer::with('printerBrand', 'printerModel')->get(),
             'clients' => Client::all(),
-            'masters' => Master::all()
+            'masters' => Master::all(),
+            'repairStatuses' => RepairStatus::all()
         ]);
     }
 
@@ -55,7 +57,7 @@ class RepairController extends Controller
             'client_id' => $request->input('client'),
             'master_id' => $request->input('master'),
             'description' => $request->input('description'),
-            'status' => $request->input('status'),
+            'repair_status_id' => $request->input('repairStatus'),
             'price' => $request->input('price'),
             'completion_date' => $request->input('completion_date'),
         ]);
@@ -81,7 +83,13 @@ class RepairController extends Controller
      */
     public function edit(Repair $repair)
     {
-        //
+        return view('admin.repairs.edit', [
+            'repair' => $repair,
+            'printers' => Printer::with('printerBrand', 'printerModel')->get(),
+            'clients' => Client::all(),
+            'masters' => Master::all(),
+            'repairStatuses' => RepairStatus::all()
+        ]);
     }
 
     /**
