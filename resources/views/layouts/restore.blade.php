@@ -105,10 +105,10 @@
             <div class="container clearfix">
                 <div class="navbar-collapse collapse pull-left">
                     <ul class="nav navbar-nav">
-                        <li class="drop"><a href="/" title="Home Layout 01" class="link-active">Home</a></li>
-                        <li><a href="/about_us" title="About Us">About Us</a></li>
-                        <li><a href="/repair_requests/create" title="Services">Services</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li class="drop"><a href="/" title="Home Layout 01" class="link-active">Главная</a></li>
+                        <li><a href="/about_us" title="About Us">О нас</a></li>
+                        <li><a href="/repair_requests/create" title="Services">Сервис</a></li>
+                        <li><a href="/contact">Контакты</a></li>
                     </ul> <!-- end .nav .navbar-nav  -->
                 </div>
                 <div class="navbar-header pull-right">

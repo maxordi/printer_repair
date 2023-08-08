@@ -5,6 +5,7 @@
 
 
 
+
     <section class="page-header">
 
         <div class="container">
@@ -161,7 +162,8 @@
                                     <label class="col-md-12">Фамилия Имя Отчество</label>
                                     <div class="col-md-12">
                                         <input type="text" name="client_name"
-                                               class="form-control form-control-line">
+                                               class="form-control form-control-line"
+                                               value="{{old('client_name')}}">
                                     </div>
                                 </div>
                                 @error('client_name')
@@ -176,7 +178,8 @@
                                     <label class="col-md-12">Контактный телефон</label>
                                     <div class="col-md-12">
                                         <input type="text" name="phone"
-                                               class="form-control form-control-line">
+                                               class="form-control form-control-line"
+                                               value="{{old('phone')}}">
                                     </div>
                                 </div>
                                 @error('phone')
@@ -191,7 +194,8 @@
                                     <label class="col-md-12">Адрес</label>
                                     <div class="col-md-12">
                                         <input type="text" name="address"
-                                               class="form-control form-control-line">
+                                               class="form-control form-control-line"
+                                               value="{{old('address')}}">
                                     </div>
                                 </div>
                                 @error('address')

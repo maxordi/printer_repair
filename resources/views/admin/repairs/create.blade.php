@@ -172,7 +172,8 @@
                                         <label class="col-md-12">Стоимость ремонта</label>
                                         <div class="col-md-12">
                                             <input type="text" name="price"
-                                               class="form-control form-control-line">
+                                               class="form-control form-control-line"
+                                                   value="{{old('price')}}">
                                         </div>
                                     </div>
                                     @error('price')

@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 wow fadeInUp">
                     <div class="about-image2 text-center">
-                        <img class="img-responsive" src="site/images/about2.jpg" alt="">
+                        <img class="img-responsive" src="/site/images/about2.png" alt="">
                     </div>
                 </div>
                 <div class="col-md-12 wow fadeInUp margin-top-40">
@@ -102,7 +102,7 @@
 
                         <figure class="team-member">
                             <a href="#" title="Melissa Munoz">
-                                <img src="site/images/team_6.jpg" alt=""/>
+                                <img src="site/images/team_6.png" alt=""/>
                             </a>
                         </figure> <!-- end. team-member  -->
                         <h3>Alexender Gary</h3>
@@ -126,7 +126,7 @@
 
                         <figure class="team-member">
                             <a href="#" title="Melissa Munoz">
-                                <img src="site/images/team_7.jpg" alt=""/>
+                                <img src="site/images/team_7.png" alt=""/>
                             </a>
                         </figure> <!-- end. team-member  -->
                         <h3>Mellissa Munoz</h3>
@@ -150,7 +150,7 @@
 
                         <figure class="team-member">
                             <a href="#" title="Melissa Munoz">
-                                <img src="site/images/team_8.jpg" alt=""/>
+                                <img src="site/images/team_8.png" alt=""/>
                             </a>
                         </figure> <!-- end. team-member  -->
                         <h3>John Abraham</h3>
@@ -174,7 +174,7 @@
 
                         <figure class="team-member">
                             <a href="#" title="Melissa Munoz">
-                                <img src="site/images/team_9.jpg" alt=""/>
+                                <img src="site/images/team_9.png" alt=""/>
                             </a>
                         </figure> <!-- end. team-member  -->
                         <h3>Silvia Stan</h3>

@@ -19,7 +19,7 @@
 /*      08. ABOUT US PAGE
 /*      09. GALLERY PAGE
 /*      10. SERVICE PAGE
-/*      11. DONATION PAGE 
+/*      11. DONATION PAGE
 /*      12. 404 PAGE
 /*      13. FOOTER
 /*      14. SIDEBAR & WIDGETS
@@ -2773,7 +2773,7 @@ ul.pagination li:last-child {
   text-align: center !important;
 }
 .section-counter {
-  background-image: url("../images/counter_bg.jpg");
+  background-image: url("../images/counter_bg.png");
   background-repeat: no-repeat;
   background-position: 0 70%;
   background-size: cover;

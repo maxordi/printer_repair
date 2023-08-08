@@ -40,11 +40,11 @@
                 <div class="container clearfix">
                     <div class="navbar-collapse collapse pull-left">
                         <ul class="nav navbar-nav">
-                            <li class="drop"><a href="/" title="repair_request" >Заявки</a></li>
-                            <li><a href="/about_us" title="clients">Клиенты</a></li>
-                            <li><a href="/repair_requests/create" title="masters" class="link-active">Мастера</a></li>
-                            <li><a href="/printers">Принтера</a></li>
-                            <li><a href="/repairs">Ремонты</a></li>
+                            <li class="drop"><a href="/admin/repair_requests" title="repair_request" >Заявки</a></li>
+                            <li><a href="#" title="clients">Клиенты</a></li>
+                            <li><a href="/admin/masters/" title="masters" class="link-active">Мастера</a></li>
+                            <li><a href="/admin/printers">Принтера</a></li>
+                            <li><a href="/admin/repairs">Ремонты</a></li>
                         </ul> <!-- end .nav .navbar-nav  -->
                     </div>
                 </div>

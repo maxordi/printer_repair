@@ -9,7 +9,7 @@ class Master extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['full_name', 'contact_details', 'specialty', 'experience'];
+    protected $fillable = ['full_name', 'contact_details', 'specialty', 'experience', 'img'];
 
     public function repairs()
     {

@@ -94,102 +94,25 @@
             </div> <!--  end .row  -->
 
             <div class="row">
-
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-
-                    <div class="team-layout-1 text-center xs-margin">
-
-                        <figure class="team-member">
-                            <a href="#" title="Melissa Munoz">
-                                <img src="site/images/team_6.jpg" alt=""/>
-                            </a>
-                        </figure> <!-- end. team-member  -->
-                        <h3>Alexender Gary</h3>
-                        <h4>CEO & Founder</h4>
-
-                        <div class="team-social-share clearfix">
-
-                            <a class="fa fa-facebook rectangle" href="#" title="Facebook"></a>
-                            <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
-                            <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
-
-                        </div> <!-- end .author-social-box  -->
-
-                    </div> <!--  end articles -->
-
-                </div> <!--  end .col-md-4 col-sm-12  -->
-
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-
-                    <div class="team-layout-1 text-center xs-margin">
-
-                        <figure class="team-member">
-                            <a href="#" title="Melissa Munoz">
-                                <img src="site/images/team_7.jpg" alt=""/>
-                            </a>
-                        </figure> <!-- end. team-member  -->
-                        <h3>Mellissa Munoz</h3>
-                        <h4>Chief Engineer</h4>
-
-                        <div class="team-social-share clearfix">
-
-                            <a class="fa fa-facebook rectangle" href="#" title="Facebook"></a>
-                            <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
-                            <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
-
-                        </div> <!-- end .author-social-box  -->
-
-                    </div> <!--  end articles -->
-
-                </div> <!--  end .col-md-4 col-sm-12  -->
-
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-
-                    <div class="team-layout-1 text-center xs-margin">
-
-                        <figure class="team-member">
-                            <a href="#" title="Melissa Munoz">
-                                <img src="site/images/team_8.jpg" alt=""/>
-                            </a>
-                        </figure> <!-- end. team-member  -->
-                        <h3>John Abraham</h3>
-                        <h4>Technical Manager</h4>
-
-                        <div class="team-social-share clearfix">
-
-                            <a class="fa fa-facebook rectangle" href="#" title="Facebook"></a>
-                            <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
-                            <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
-
-                        </div> <!-- end .author-social-box  -->
-
-                    </div> <!--  end articles -->
-
-                </div> <!--  end .col-md-4 col-sm-12  -->
-
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-
-                    <div class="team-layout-1 text-center xs-margin">
-
-                        <figure class="team-member">
-                            <a href="#" title="Melissa Munoz">
-                                <img src="site/images/team_9.jpg" alt=""/>
-                            </a>
-                        </figure> <!-- end. team-member  -->
-                        <h3>Silvia Stan</h3>
-                        <h4>Office Manager</h4>
-
-                        <div class="team-social-share clearfix">
-
-                            <a class="fa fa-facebook rectangle" href="#" title="Facebook"></a>
-                            <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
-                            <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
-
-                        </div> <!-- end .author-social-box  -->
-
-                    </div> <!--  end articles -->
-
-                </div> <!--  end .col-md-4 col-sm-12  -->
+                @foreach ($musters as $muster)
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="team-layout-1 text-center xs-margin">
+                            <figure class="team-member">
+                                <a href="#" title="{{ $muster->full_name }}">
+                                    <img src="{{ Storage::url($muster->img) }}" alt="{{ $muster->full_name }}" />
+                                </a>
+                            </figure>
+                            <h3>{{ $muster->full_name }}</h3>
+                            <h4>{{ $muster->specialty }}</h4>
+                            <div class="team-social-share clearfix">
+                                <a class="fa fa-facebook rectangle" href="#" title="Facebook"></a>
+                                <a class="fa fa-twitter rectangle" href="#" title="Twitter"></a>
+                                <a class="fa fa-linkedin rectangle" href="#" title="Linkedin"></a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                
 
             </div> <!-- end .row  -->
 

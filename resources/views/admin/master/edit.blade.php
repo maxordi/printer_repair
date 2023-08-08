@@ -174,6 +174,20 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-md-12">Фотография</label>
+                                    <div class="col-md-12">
+                                        <input type="file" name="img"
+                                               class="form-control form-control-line @error('img') is-invalid @enderror">
+                                    </div>
+                                    @error('img')
+                                    @foreach($errors->get('img') as $error)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$error}}
+                                        </div>
+                                    @endforeach
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-success text-white">Сохранить</button>
                                     </div>

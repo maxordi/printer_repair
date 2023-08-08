@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MasterRequest;
 use App\Models\Master;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MasterController extends Controller
 {
@@ -41,7 +42,13 @@ class MasterController extends Controller
      */
     public function store(MasterRequest $request)
     {
-        Master::create($request->all());
+        $data = $request->all();
+        if ($request->hasFile('img')){
+            $path = Storage::disk('public')
+                ->putFile('master', $request->file('img'));
+            $data['img'] = $path;
+        }
+        Master::create($data);
         return redirect()->route('success');
     }
 

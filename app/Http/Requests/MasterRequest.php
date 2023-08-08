@@ -28,7 +28,8 @@ class MasterRequest extends FormRequest
             'contact_details' => 'required|unique:masters,contact_details',
             'specialty' => 'required',
             'experience' => 'required|integer|min:0|max:50',
-            'note' => 'max:250'
+            'note' => 'max:250',
+            'img' => 'image'
         ];
     }
 
@@ -41,7 +42,8 @@ class MasterRequest extends FormRequest
             'full_name.regex' => 'Поле Фамилия Имя Отчество можно вводить только буквы, пробелы и дефисы и первая буква каждого слова была заглавной ',
             'contact_details.required' => 'Поле Контактные данные является обязательным для заполнения',
             'contact_details.unique' => 'Поле Контактные данные должно быть уникальным',
-            'issue_description.max' => 'Поле Примечание не должно превышать 250 символов'
+            'issue_description.max' => 'Поле Примечание не должно превышать 250 символов',
+            'img.image' => 'файл должен иметь расширение (jpg, jpeg, png, bmp, svg, webp)'
         ];
     }
 }

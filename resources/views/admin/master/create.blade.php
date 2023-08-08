@@ -94,13 +94,15 @@
                         <div class="card-body">
 
                             <form class="form-horizontal form-material mx-2"
-                                  method="post" action="{{route('masters.store')}}">
+                                  method="post" action="{{route('masters.store')}}"
+                                  enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label class="col-md-12">Фамилия Имя Отчество</label>
                                     <div class="col-md-12">
                                         <input type="text" name="full_name"
-                                               class="form-control form-control-line">
+                                               class="form-control form-control-line"
+                                               value="{{old('full_name')}}">
                                     </div>
                                 </div>
                                 @error('full_name')
@@ -115,7 +117,8 @@
                                     <label class="col-md-12">Контактные данные (мобильный телефон)</label>
                                     <div class="col-md-12">
                                         <input type="text" name="contact_details"
-                                               class="form-control form-control-line">
+                                               class="form-control form-control-line"
+                                               value="{{old('contact_details')}}">
                                     </div>
                                 </div>
                                 @error('contact_details')
@@ -130,7 +133,8 @@
                                     <label class="col-md-12">Специальность</label>
                                     <div class="col-md-12">
                                         <input type="text" name="specialty"
-                                               class="form-control form-control-line">
+                                               class="form-control form-control-line"
+                                               value="{{old('specialty')}}">
                                     </div>
                                 </div>
                                 @error('specialty')
@@ -145,7 +149,8 @@
                                     <label class="col-md-12">Стаж работы (лет)</label>
                                     <div class="col-md-12">
                                         <input type="text" name="experience"
-                                               class="form-control form-control-line">
+                                               class="form-control form-control-line"
+                                               value="{{old('experience')}}">
                                     </div>
                                 </div>
                                 @error('experience')
@@ -156,6 +161,20 @@
                                 @endforeach
                                 @enderror
 
+                                <div class="form-group">
+                                    <label class="col-md-12">Фотография</label>
+                                    <div class="col-md-12">
+                                        <input type="file" name="img"
+                                               class="form-control form-control-line @error('img') is-invalid @enderror">
+                                    </div>
+                                    @error('img')
+                                    @foreach($errors->get('img') as $error)
+                                        <div class="alert alert-danger" role="alert">
+                                            {{$error}}
+                                        </div>
+                                    @endforeach
+                                    @enderror
+                                </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-warning text-white">Сохранить</button>
