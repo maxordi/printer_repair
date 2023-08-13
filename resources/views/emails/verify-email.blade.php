@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Verify Your Email</title>
+    <title>Подтверждение адреса электронной почты</title>
 </head>
 <body>
-<h1>Welcome to our website!</h1>
-<p>Please click the link below to verify your email address:</p>
-<a href="{{ $verificationUrl }}">Verify Email</a>
+<h1>Подтвердите ваш адрес электронной почты</h1>
+<p>Пожалуйста, нажмите на ссылку ниже, чтобы подтвердить ваш адрес электронной почты:</p>
+<a href="{{ $verificationUrl }}">Подтвердить адрес</a>
 </body>
 </html>
+
 
